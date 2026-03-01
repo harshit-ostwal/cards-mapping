@@ -400,6 +400,24 @@ const aiTools = [
   },
 ];
 
+const search = document.querySelector(".search input");
+
+search.addEventListener("input", () => {
+  const searchTerm = search.value.toLowerCase();
+
+  const filteredTools = aiTools.filter((tool) => {
+    return (
+      tool.name.toLowerCase().includes(searchTerm) ||
+      tool.company.toLowerCase().includes(searchTerm) ||
+      tool.category.toLowerCase().includes(searchTerm) ||
+      tool.tags.some((tag) => tag.toLowerCase().includes(searchTerm))
+    );
+  });
+
+  document.querySelector(".cards").innerHTML = "";
+  renderCards(filteredTools);
+});
+
 function renderCards(tools) {
   const cardContainer = document.querySelector(".cards");
 
