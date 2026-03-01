@@ -400,7 +400,7 @@ const aiTools = [
   },
 ];
 
-const search = document.querySelector(".search input");
+const search = document.querySelector("#search");
 
 search.addEventListener("input", () => {
   const searchTerm = search.value.toLowerCase();
